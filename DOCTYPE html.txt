@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>	
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación MOVAPE/UNICEP - Acceso al Portal</title>
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundación MOVAPE/UNICEP - Acceso al Portal</title>
+  <style>
         body {
             box-sizing: border-box;
             margin: 0;
@@ -413,109 +413,91 @@
             .dashboard-header { flex-direction: column; gap: 1rem; text-align: center; }
             .dashboard-grid { grid-template-columns: 1fr; }
         }
-    </style>
+  </style>
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="sphere"></div>
-        <div class="sphere"></div>
-        <div class="sphere"></div>
-        <div class="sphere"></div>
-        <div class="sphere"></div>
+  <div class="animated-bg">
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+  </div>
+  <div class="container">
+    <div class="login-section" id="loginSection">
+      <div class="logo">
+        <h1>Fundación MOVAPE/UNICEP</h1>
+        <p>Portal Universitario Digital</p>
+      </div>
+      <div class="login-form">
+        <h2>🎓 Acceso al Portal</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)" name="loginForm">
+          <div class="form-group">
+            <label for="userType">Tipo de Usuario:</label> <select id="userType" required="">
+              <option value="">
+                Selecciona tu tipo
+              </option>
+              <option value="student">
+                Estudiante
+              </option>
+              <option value="professor">
+                Docente
+              </option>
+              <option value="admin">
+                Administrador
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="userId">ID de Usuario:</label> <input type="text" id="userId" placeholder="Ingresa tu ID universitario" required="">
+          </div><button type="submit" class="login-btn">Ingresar al Portal</button>
+        </form>
+        <div class="error-message" id="errorMessage">
+          ID o tipo de usuario no válido. Por favor verifica tu información.
+        </div>
+      </div>
+      <div class="demo-ids">
+        <h3>🔍 IDs de Demostración</h3>
+        <div class="demo-id">
+          <span>Admin de Sistema:</span> <span class="id-code" onclick="fillId('ADM-2024-001')">ADM-2024-001</span>
+        </div>
+        <div class="demo-id">
+          <span>María González - Ing. Industrial:</span> <span class="id-code" onclick="fillId('EST-2024-001')">EST-2024-001</span>
+        </div>
+        <div class="demo-id">
+          <span>Carlos Ruiz - Administración:</span> <span class="id-code" onclick="fillId('EST-2024-002')">EST-2024-002</span>
+        </div>
+        <div class="demo-id">
+          <span>Ana Sofía - Psicología:</span> <span class="id-code" onclick="fillId('EST-2024-003')">EST-2024-003</span>
+        </div>
+        <div class="demo-id">
+          <span>Diego Pérez - Pedagogía:</span> <span class="id-code" onclick="fillId('EST-2024-004')">EST-2024-004</span>
+        </div>
+        <div class="demo-id">
+          <span>Isabella - Derecho:</span> <span class="id-code" onclick="fillId('EST-2024-005')">EST-2024-005</span>
+        </div>
+        <div class="demo-id">
+          <span>Docente Dr. Ana Mendoza:</span> <span class="id-code" onclick="fillId('PROF-2024-101')">PROF-2024-101</span>
+        </div>
+        <div class="demo-id">
+          <span>Docente Ing. Roberto Silva:</span> <span class="id-code" onclick="fillId('PROF-2024-102')">PROF-2024-102</span>
+        </div>
+      </div>
     </div>
-
-    <div class="container">
-        <div class="login section" id="loginSection">
-        
-            <div class="logo">
-                <h1>Fundación MOVAPE/UNICEP</h1>
-                <p>Portal Universitario Digital</p>
-            </div>
-
-            <div class="login-form">
-                <h2>🎓 Acceso al Portal</h2>
-                
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="userType">Tipo de Usuario:</label>
-                        <select id="userType" required>
-                            <option value="">Selecciona tu tipo</option>
-                            <option value="student">Estudiante</option>
-                            <option value="professor">Docente</option>
-                            <option value="admin">Administrador</option> </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="userId">ID de Usuario:</label>
-                        <input type="text" id="userId" placeholder="Ingresa tu ID universitario" required>
-                    </div>
-                    
-                    <button type="submit" class="login-btn">Ingresar al Portal</button>
-                </form>
-                
-                <div class="error-message" id="errorMessage">
-                    ID o tipo de usuario no válido. Por favor verifica tu información.
-                </div>
-            </div>
-
-            <div class="demo-ids">
-                <h3>🔍 IDs de Demostración</h3>
-                <div class="demo-id">
-                    <span>Admin de Sistema:</span>
-                    <span class="id-code" onclick="fillId('ADM-2024-001')">ADM-2024-001</span> </div>
-                <div class="demo-id">
-                    <span>María González - Ing. Industrial:</span>
-                    <span class="id-code" onclick="fillId('EST-2024-001')">EST-2024-001</span>
-                </div>
-                <div class="demo-id">
-                    <span>Carlos Ruiz - Administración:</span>
-                    <span class="id-code" onclick="fillId('EST-2024-002')">EST-2024-002</span>
-                </div>
-                <div class="demo-id">
-                    <span>Ana Sofía - Psicología:</span>
-                    <span class="id-code" onclick="fillId('EST-2024-003')">EST-2024-003</span>
-                </div>
-                <div class="demo-id">
-                    <span>Diego Pérez - Pedagogía:</span>
-                    <span class="id-code" onclick="fillId('EST-2024-004')">EST-2024-004</span>
-                </div>
-                <div class="demo-id">
-                    <span>Isabella - Derecho:</span>
-                    <span class="id-code" onclick="fillId('EST-2024-005')">EST-2024-005</span>
-                </div>
-                <div class="demo-id">
-                    <span>Docente Dr. Ana Mendoza:</span>
-                    <span class="id-code" onclick="fillId('PROF-2024-101')">PROF-2024-101</span>
-                </div>
-                <div class="demo-id">
-                    <span>Docente Ing. Roberto Silva:</span>
-                    <span class="id-code" onclick="fillId('PROF-2024-102')">PROF-2024-102</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="dashboard-section" id="mainDashboard">
-            <div class="dashboard-header">
-                <h2 id="dashboardTitle">Dashboard</h2>
-                <button class="back-btn" onclick="logout()">🚪 Cerrar Sesión</button>
-            </div>
-
-            <div class="dashboard-grid" id="dashboardContent">
-                </div>
-        </div>
-
-        <div class="dashboard-section" id="detailedSection">
-            <div class="dashboard-header">
-                <h2 id="sectionTitle">Sección Detallada</h2>
-                <button class="back-btn" onclick="backToDashboard()">🔙 Volver al Dashboard</button>
-            </div>
-
-            <div id="sectionContent">
-                </div>
-        </div>
+    <div class="dashboard-section" id="mainDashboard">
+      <div class="dashboard-header">
+        <h2 id="dashboardTitle">Dashboard</h2><button class="back-btn" onclick="logout()">🚪 Cerrar Sesión</button>
+      </div>
+      <div class="dashboard-grid" id="dashboardContent"></div>
     </div>
-
-    <script>
+    <div class="dashboard-section" id="detailedSection">
+      <div class="dashboard-header">
+        <h2 id="sectionTitle">Sección Detallada</h2><button class="back-btn" onclick="backToDashboard()">🔙 Volver al Dashboard</button>
+      </div>
+      <div id="sectionContent"></div>
+    </div>
+  </div>
+  <script>
         // --- DATA ---
         let users = {
             'EST-2024-001': { type: 'student', name: 'María González', career: 'Ingeniería Industrial', semester: '3° Cuatrimestre', modality: 'Sabatina', grades: [{ subject: 'Matemáticas Aplicadas', grade: '8.5' }, { subject: 'Procesos Industriales', grade: '9.2' }, { subject: 'Física General', grade: '7.8' }], schedule: [{ time: '08:00 - 10:00', subject: 'Matemáticas Aplicadas', room: 'Aula 201', professor: 'Prof. Dr. Ana Mendoza', day: 'Sábado' }, { time: '10:30 - 12:30', subject: 'Procesos Industriales', room: 'Lab. Industrial', professor: 'Prof. Ing. Ana Rodríguez', day: 'Sábado' }, { time: '14:00 - 16:00', subject: 'Física General', room: 'Aula 105', professor: 'Prof. Ing. Roberto Silva', day: 'Sábado' }] },
@@ -1101,8 +1083,6 @@
             }
         };
 
-    </script>
+  </script>
 </body>
 </html>
-
-
