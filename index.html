@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundación MOVAPE/UNICEP - Acceso al Portal</title>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #87CEEB 0%, #6B8E23 100%);
+            min-height: 100vh;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sphere {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .sphere:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sphere:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .sphere:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .sphere:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 30%;
+            animation-delay: 1s;
+        }
+
+        .sphere:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            top: 10%;
+            left: 60%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .dashboard-section {
+            display: none;
+            flex-direction: column;
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: #2c5530;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .logo p {
+            margin: 0.5rem 0 0 0;
+            color: #4682B4;
+            font-size: 1.2rem;
+        }
+
+        .login-form {
+            background: rgba(255,255,255,0.9);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .login-form h2 {
+            margin: 0 0 2rem 0;
+            color: #2c5530;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c5530;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #4682B4;
+            box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+        }
+
+        .login-btn, .action-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #87CEEB, #6B8E23);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .login-btn:hover, .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .action-btn {
+            width: auto;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .demo-ids {
+            background: rgba(255,255,255,0.8);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .demo-ids h3 {
+            margin: 0 0 1rem 0;
+            color: #2c5530;
+            font-size: 1.2rem;
+        }
+
+        .demo-id {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .demo-id:last-child {
+            border-bottom: none;
+        }
+
+        .demo-id .id-code {
+            font-weight: bold;
+            color: #4682B4;
+            cursor: pointer;
+        }
+
+        .demo-id .id-code:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: rgba(255, 0, 0, 0.1);
+            color: #d32f2f;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            display: none;
+        }
+
+        .dashboard-header {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+        }
+
+        .dashboard-header h2 {
+            margin: 0;
+            color: #2c5530;
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, #87CEEB, #6B8E23);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .dashboard-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+        
+        .dashboard-card.non-clickable:hover {
+            transform: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            cursor: default;
+        }
+
+        .dashboard-card h3 {
+            margin: 0 0 1rem 0;
+            color: #2c5530;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-content {
+            color: #666;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .grade-item, .schedule-item-summary, .subject-item, .material-item, .assignment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .grade-item:last-child, .schedule-item-summary:last-child, .subject-item:last-child, .material-item:last-child, .assignment-item:last-child {
+            border-bottom: none;
+        }
+
+        .grade {
+            font-weight: bold;
+            color: #4682B4;
+        }
+
+        .schedule-item {
+            background: linear-gradient(45deg, rgba(135,206,235,0.1), rgba(107,142,35,0.1));
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .calendar-item {
+             border-left: 4px solid #6B8E23;
+             padding-left: 1rem;
+             margin-bottom: 1rem;
+        }
+        .calendar-item.holiday { border-color: #d32f2f; }
+        .calendar-item.event { border-color: #4682B4; }
+        .calendar-item strong { color: #2c5530; }
+
+
+        .schedule-time {
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .announcement {
+            background: rgba(135,206,235,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #4682B4;
+        }
+
+        .announcement:last-child {
+            margin-bottom: 0;
+        }
+
+        .announcement-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: rgba(107,142,35,0.1);
+            color: #2c5530;
+        }
+        
+        tr.clickable-row:hover {
+            background-color: rgba(107,142,35,0.05);
+            cursor: pointer;
+        }
+
+        .status-entregado { color: green; font-weight: bold; }
+        .status-pendiente { color: orange; font-weight: bold; }
+        .attendance-toggle { cursor: pointer; }
+        .attendance-Presente { color: green; }
+        .attendance-Ausente { color: red; }
+        .attendance-Pendiente { color: grey; }
+
+
+        @media (max-width: 768px) {
+            .logo h1 { font-size: 2rem; }
+            .login-form { padding: 2rem; margin: 1rem; }
+            .dashboard-header { flex-direction: column; gap: 1rem; text-align: center; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+  </style>
+</head>
+<body>
+  <div class="animated-bg">
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+  </div>
+  <div class="container">
+    <div class="login-section" id="loginSection">
+      <div class="logo">
+        <h1>Fundación MOVAPE/UNICEP</h1>
+        <p>Portal Universitario Digital</p>
+      </div>
+      <div class="login-form">
+        <h2>🎓 Acceso al Portal</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)" name="loginForm">
+          <div class="form-group">
+            <label for="userType">Tipo de Usuario:</label> <select id="userType" required="">
+              <option value="">
+                Selecciona tu tipo
+              </option>
+              <option value="student">
+                Estudiante
+              </option>
+              <option value="professor">
+                Docente
+              </option>
+              <option value="admin">
+                Administrador
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="userId">ID de Usuario:</label> <input type="text" id="userId" placeholder="Ingresa tu ID universitario" required="">
+          </div><button type="submit" class="login-btn">Ingresar al Portal</button>
+        </form>
+        <div class="error-message" id="errorMessage">
+          ID o tipo de usuario no válido. Por favor verifica tu información.
+        </div>
+      </div>
+      <div class="demo-ids">
+        <h3>🔍 IDs de Demostración</h3>
+        <div class="demo-id">
+          <span>Admin de Sistema:</span> <span class="id-code" onclick="fillId('ADM-2024-001')">ADM-2024-001</span>
+        </div>
+        <div class="demo-id">
+          <span>María González - Ing. Industrial:</span> <span class="id-code" onclick="fillId('EST-2024-001')">EST-2024-001</span>
+        </div>
+        <div class="demo-id">
+          <span>Carlos Ruiz - Administración:</span> <span class="id-code" onclick="fillId('EST-2024-002')">EST-2024-002</span>
+        </div>
+        <div class="demo-id">
+          <span>Ana Sofía - Psicología:</span> <span class="id-code" onclick="fillId('EST-2024-003')">EST-2024-003</span>
+        </div>
+        <div class="demo-id">
+          <span>Diego Pérez - Pedagogía:</span> <span class="id-code" onclick="fillId('EST-2024-004')">EST-2024-004</span>
+        </div>
+        <div class="demo-id">
+          <span>Isabella - Derecho:</span> <span class="id-code" onclick="fillId('EST-2024-005')">EST-2024-005</span>
+        </div>
+        <div class="demo-id">
+          <span>Docente Dr. Ana Mendoza:</span> <span class="id-code" onclick="fillId('PROF-2024-101')">PROF-2024-101</span>
+        </div>
+        <div class="demo-id">
+          <span>Docente Ing. Roberto Silva:</span> <span class="id-code" onclick="fillId('PROF-2024-102')">PROF-2024-102</span>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-section" id="mainDashboard">
+      <div class="dashboard-header">
+        <h2 id="dashboardTitle">Dashboard</h2><button class="back-btn" onclick="logout()">🚪 Cerrar Sesión</button>
+      </div>
+      <div class="dashboard-grid" id="dashboardContent"></div>
+    </div>
+    <div class="dashboard-section" id="detailedSection">
+      <div class="dashboard-header">
+        <h2 id="sectionTitle">Sección Detallada</h2><button class="back-btn" onclick="backToDashboard()">🔙 Volver al Dashboard</button>
+      </div>
+      <div id="sectionContent"></div>
+    </div>
+  </div>
+  <script>
+        // --- DATA ---
+        let users = {
+            'EST-2024-001': { type: 'student', name: 'María González', career: 'Ingeniería Industrial', semester: '3° Cuatrimestre', modality: 'Sabatina', grades: [{ subject: 'Matemáticas Aplicadas', grade: '8.5' }, { subject: 'Procesos Industriales', grade: '9.2' }, { subject: 'Física General', grade: '7.8' }], schedule: [{ time: '08:00 - 10:00', subject: 'Matemáticas Aplicadas', room: 'Aula 201', professor: 'Prof. Dr. Ana Mendoza', day: 'Sábado' }, { time: '10:30 - 12:30', subject: 'Procesos Industriales', room: 'Lab. Industrial', professor: 'Prof. Ing. Ana Rodríguez', day: 'Sábado' }, { time: '14:00 - 16:00', subject: 'Física General', room: 'Aula 105', professor: 'Prof. Ing. Roberto Silva', day: 'Sábado' }] },
+            'EST-2024-002': { type: 'student', name: 'Carlos Ruiz', career: 'Administración de Empresas', semester: '5° Cuatrimestre', modality: 'Dominical', grades: [{ subject: 'Marketing Digital', grade: '9.1' }, { subject: 'Contabilidad Avanzada', grade: '8.7' }], schedule: [{ time: '09:00 - 11:00', subject: 'Marketing Digital', room: 'Aula 301', professor: 'Prof. Lic. Patricia López', day: 'Domingo' }] },
+            'EST-2024-003': { type: 'student', name: 'Ana Sofía Herrera', career: 'Psicología', semester: '4° Cuatrimestre', modality: 'Sabatina', grades: [{ subject: 'Psicología Cognitiva', grade: '9.3' }, { subject: 'Neuropsicología', grade: '8.8' }], schedule: [{ time: '08:00 - 10:00', subject: 'Psicología Cognitiva', room: 'Aula 301', professor: 'Prof. Dra. Carmen Vásquez', day: 'Sábado' }] },
+            'EST-2024-004': { type: 'student', name: 'Diego Alejandro Pérez', career: 'Pedagogía', semester: '2° Cuatrimestre', modality: 'Dominical', grades: [{ subject: 'Fundamentos de Pedagogía', grade: '8.7' }, { subject: 'Psicología Educativa', grade: '9.1' }], schedule: [{ time: '09:00 - 11:00', subject: 'Fundamentos de Pedagogía', room: 'Aula 102', professor: 'Prof. Dra. Lucía Ramírez', day: 'Domingo' }] },
+            'EST-2024-005': { type: 'student', name: 'Isabella Martínez', career: 'Derecho', semester: '6° Cuatrimestre', modality: 'Sabatina', grades: [{ subject: 'Derecho Constitucional', grade: '9.0' }, { subject: 'Derecho Penal', grade: '8.6' }], schedule: [{ time: '08:00 - 10:00', subject: 'Derecho Constitucional', room: 'Aula Magna', professor: 'Prof. Dr. Alejandro Vargas', day: 'Sábado' }] },
+            'PROF-2024-101': { type: 'professor', name: 'Dr. Ana Mendoza', department: 'Facultad de Ingeniería', subjects: ['Matemáticas Aplicadas', 'Cálculo Diferencial'], classes: [{ subject: 'Matemáticas Aplicadas', room: 'Aula 201', students: ['EST-2024-001', 'EST-2024-003'] }, { subject: 'Cálculo Diferencial', room: 'Aula 203', students: ['EST-2024-002', 'EST-2024-004'] }] },
+            'PROF-2024-102': { type: 'professor', name: 'Ing. Roberto Silva', department: 'Facultad de Ciencias', subjects: ['Física General', 'Física Aplicada'], classes: [{ subject: 'Física General', room: 'Aula 105', students: ['EST-2024-001', 'EST-2024-005'] }, { subject: 'Física Aplicada', room: 'Lab. Física', students: ['EST-2024-001'] }] },
+            'ADM-2024-001': { type: 'admin', name: 'Admin de Sistema', department: 'Administración Central', accessLevel: 'SuperUsuario' } // NUEVO: Usuario Administrador
+        };
+        let academicMaterials = {
+            'Matemáticas Aplicadas': [{ title: 'Cálculo Diferencial e Integral', type: 'PDF', size: '2.5 MB' }],
+            'Física General': [{ title: 'Manual de Laboratorio de Física', type: 'PDF', size: '3.1 MB' }]
+        };
+        let assignments = {
+            'Matemáticas Aplicadas': [{ title: 'Tarea 1: Derivadas', dueDate: '2025-10-15', submissions: { 'EST-2024-001': {status: 'Entregado', grade: null, feedback: ''}, 'EST-2024-003': {status: 'Pendiente', grade: null, feedback: ''} } }],
+            'Física General': [{ title: 'Reporte de Práctica 1', dueDate: '2025-10-20', submissions: { 'EST-2024-001': {status: 'Entregado', grade: 9.5, feedback: 'Excelente reporte, muy bien detallado.'}, 'EST-2024-005': {status: 'Pendiente', grade: null, feedback: ''} } }]
+        };
+        let attendance = {
+            'Matemáticas Aplicadas': { '2025-09-27': { 'EST-2024-001': 'Presente', 'EST-2024-003': 'Presente' } },
+            'Física General': { '2025-09-27': { 'EST-2024-001': 'Presente', 'EST-2024-005': 'Ausente' } }
+        };
+        const schoolCalendar = [
+            { date: '2025-09-01', description: 'Inicio de Cuatrimestre Sep-Dic 2025', type: 'event' },
+            { date: '2025-09-16', description: 'Día de la Independencia', type: 'holiday' },
+            { date: '2025-10-27', description: 'Inicio de Primer Parcial', type: 'exam' },
+            { date: '2025-11-02', description: 'Día de Muertos', type: 'holiday' },
+            { date: '2025-11-20', description: 'Aniversario de la Revolución', type: 'holiday' },
+            { date: '2025-12-08', description: 'Inicio de Segundo Parcial', type: 'exam' },
+            { date: '2025-12-19', description: 'Fin de Cuatrimestre Sep-Dic 2025', type: 'event' },
+        ];
+        
+        // =================== PLANES DE ESTUDIO ACTUALIZADOS ===================
+        const studyPlans = {
+            'Ingeniería Industrial': {
+                duration: 9, quarters: [
+                    { number: 1, subjects: [{ name: 'Introducción a la ingeniería industrial', credits: 0, type: 'No especificado' }, { name: 'Teoría del conocimiento', credits: 0, type: 'No especificado' }, { name: 'Taller de Lectura Expresión Oral y Escrita', credits: 0, type: 'No especificado' }, { name: 'Análisis de la problemática nacional', credits: 0, type: 'No especificado' }, { name: 'Cálculo Integral', credits: 0, type: 'No especificado' }] },
+                    { number: 2, subjects: [{ name: 'Innovación Tecnológica', credits: 0, type: 'No especificado' }, { name: 'Estadística Descriptiva', credits: 0, type: 'No especificado' }, { name: 'Álgebra Lineal', credits: 0, type: 'No especificado' }, { name: 'Taller de Liderazgo', credits: 0, type: 'No especificado' }, { name: 'Desarrollo Humano', credits: 0, type: 'No especificado' }] },
+                    { number: 3, subjects: [{ name: 'Metodología de la Investigación Científica', credits: 0, type: 'No especificado' }, { name: 'Estadística Inferencial', credits: 0, type: 'No especificado' }, { name: 'Calculo vectorial', credits: 0, type: 'No especificado' }, { name: 'Desarrollo sustentable', credits: 0, type: 'No especificado' }, { name: 'Métodos y técnicas de investigación científica', credits: 0, type: 'No especificado' }] },
+                    { number: 4, subjects: [{ name: 'Economía', credits: 0, type: 'No especificado' }, { name: 'Planeación Financiera', credits: 0, type: 'No especificado' }, { name: 'Dibujo industrial', credits: 0, type: 'No especificado' }, { name: 'Ingeniería en sistemas', credits: 0, type: 'No especificado' }, { name: 'Higiene y seguridad industrial', credits: 0, type: 'No especificado' }] },
+                    { number: 5, subjects: [{ name: 'Ergonomía', credits: 0, type: 'No especificado' }, { name: 'Metrología y Normalización', credits: 0, type: 'No especificado' }, { name: 'Electricidad y Electrotécnica industrial', credits: 0, type: 'No especificado' }, { name: 'Estudio del trabajo I', credits: 0, type: 'No especificado' }, { name: 'Procesos de fabricación', credits: 0, type: 'No especificado' }] },
+                    { number: 6, subjects: [{ name: 'Estudio del trabajo II', credits: 0, type: 'No especificado' }, { name: 'Investigación de Operaciones I', credits: 0, type: 'No especificado' }, { name: 'Gestión de Costos', credits: 0, type: 'No especificado' }, { name: 'Control estadístico de la calidad', credits: 0, type: 'No especificado' }, { name: 'Administración de Proyectos', credits: 0, type: 'No especificado' }] },
+                    { number: 7, subjects: [{ name: 'Investigación de Operaciones II', credits: 0, type: 'No especificado' }, { name: 'Administración de mantenimiento', credits: 0, type: 'No especificado' }, { name: 'Ingeniería económica', credits: 0, type: 'No especificado' }, { name: 'Mercadotecnia', credits: 0, type: 'No especificado' }, { name: 'Administración de operaciones I', credits: 0, type: 'No especificado' }] },
+                    { number: 8, subjects: [{ name: 'Administración de operaciones II', credits: 0, type: 'No especificado' }, { name: 'Sistema de manufacturas', credits: 0, type: 'No especificado' }, { name: 'Lógica y cadena de suministro', credits: 0, type: 'No especificado' }, { name: 'Gestión de sistemas de calidad', credits: 0, type: 'No especificado' }, { name: 'Planeación y diseño de instalaciones', credits: 0, type: 'No especificado' }] },
+                    { number: 9, subjects: [{ name: 'Formulación y Evaluación de Proyectos', credits: 0, type: 'No especificado' }, { name: 'Algoritmos y lenguaje de programación', credits: 0, type: 'No especificado' }, { name: 'Simulación', credits: 0, type: 'No especificado' }, { name: 'Relaciones industriales', credits: 0, type: 'No especificado' }, { name: 'Seminario de investigación', credits: 0, type: 'No especificado' }] }
+                ]
+            },
+            'Administración de Empresas': {
+                duration: 9, quarters: [
+                    { number: 1, subjects: [{ name: 'Introducción a la Administración', credits: 0, type: 'No especificado' }, { name: 'Teoría del conocimiento', credits: 0, type: 'No especificado' }, { name: 'Taller de Lectura oral y escrita', credits: 0, type: 'No especificado' }, { name: 'Análisis de la realidad nacional', credits: 0, type: 'No especificado' }, { name: 'Contabilidad Básica', credits: 0, type: 'No especificado' }] },
+                    { number: 2, subjects: [{ name: 'Microeconomía', credits: 0, type: 'No especificado' }, { name: 'Metodología de la Investigación', credits: 0, type: 'No especificado' }, { name: 'Estadística Descriptiva', credits: 0, type: 'No especificado' }, { name: 'Proceso Administrativo', credits: 0, type: 'No especificado' }, { name: 'Desarrollo Humano', credits: 0, type: 'No especificado' }] },
+                    { number: 3, subjects: [{ name: 'Taller de Liderazgo', credits: 0, type: 'No especificado' }, { name: 'Macroeconomía', credits: 0, type: 'No especificado' }, { name: 'Mercadotecnia', credits: 0, type: 'No especificado' }, { name: 'Desarrollo Sustentable', credits: 0, type: 'No especificado' }, { name: 'Métodos y técnicas de investigación científica', credits: 0, type: 'No especificado' }] },
+                    { number: 4, subjects: [{ name: 'Matemáticas financieras', credits: 0, type: 'No especificado' }, { name: 'Comportamiento organizacional', credits: 0, type: 'No especificado' }, { name: 'Contabilidad de costos', credits: 0, type: 'No especificado' }, { name: 'Investigación de mercados', credits: 0, type: 'No especificado' }, { name: 'Administración del capital humano', credits: 0, type: 'No especificado' }] },
+                    { number: 5, subjects: [{ name: 'Planeación Estratégica', credits: 0, type: 'No especificado' }, { name: 'Investigación de operaciones', credits: 0, type: 'No especificado' }, { name: 'Administración de la calidad', credits: 0, type: 'No especificado' }, { name: 'Derecho laboral', credits: 0, type: 'No especificado' }, { name: 'Administración de la Producción', credits: 0, type: 'No especificado' }] },
+                    { number: 6, subjects: [{ name: 'Desarrollo de habilidades directivas', credits: 0, type: 'No especificado' }, { name: 'Administración financiera', credits: 0, type: 'No especificado' }, { name: 'Estrategia de comercialización', credits: 0, type: 'No especificado' }, { name: 'Innovación y emprendimiento', credits: 0, type: 'No especificado' }, { name: 'Comunicación Organizacional', credits: 0, type: 'No especificado' }] },
+                    { number: 7, subjects: [{ name: 'Auditoria administrativa', credits: 0, type: 'No especificado' }, { name: 'Consultor empresarial', credits: 0, type: 'No especificado' }, { name: 'Derecho fiscal', credits: 0, type: 'No especificado' }, { name: 'Tecnologías de la Información Aplicada a la Administración', credits: 0, type: 'No especificado' }, { name: 'Negociación y Toma de Decisiones Efectivas', credits: 0, type: 'No especificado' }] },
+                    { number: 8, subjects: [{ name: 'Comercio electrónico', credits: 0, type: 'No especificado' }, { name: 'Desarrollo organizacional', credits: 0, type: 'No especificado' }, { name: 'Formulación y Evaluación de Proyectos de Inversión', credits: 0, type: 'No especificado' }, { name: 'Administración de PyMES', credits: 0, type: 'No especificado' }, { name: 'Logística administrativa', credits: 0, type: 'No especificado' }] },
+                    { number: 9, subjects: [{ name: 'Plan de Negocios', credits: 0, type: 'No especificado' }, { name: 'Ética profesional', credits: 0, type: 'No especificado' }, { name: 'Derecho mercantil', credits: 0, type: 'No especificado' }, { name: 'Administración estratégica', credits: 0, type: 'No especificado' }, { name: 'Seminario de investigación', credits: 0, type: 'No especificado' }] }
+                ]
+            },
+            'Psicología': {
+                duration: 9, quarters: [
+                    { number: 1, subjects: [{ name: 'Matemáticas básicas', credits: 0, type: 'No especificado' }, { name: 'Teorías y sistemas en psicología I', credits: 0, type: 'No especificado' }, { name: 'Bases biológicas en la conducta', credits: 0, type: 'No especificado' }, { name: 'Antropología filosófica', credits: 0, type: 'No especificado' }, { name: 'Neuroanatomía', credits: 0, type: 'No especificado' }, { name: 'Metodología de la investigación', credits: 0, type: 'No especificado' }] },
+                    { number: 2, subjects: [{ name: 'Sensopercepción', credits: 0, type: 'No especificado' }, { name: 'Teorías y sistemas en psicología II', credits: 0, type: 'No especificado' }, { name: 'Estadística descriptiva', credits: 0, type: 'No especificado' }, { name: 'Psicología del aprendizaje', credits: 0, type: 'No especificado' }, { name: 'Neurofisiología', credits: 0, type: 'No especificado' }, { name: 'Metodología de la investigación II', credits: 0, type: 'No especificado' }] },
+                    { number: 3, subjects: [{ name: 'Psicopatología', credits: 0, type: 'No especificado' }, { name: 'Teorías de la personalidad', credits: 0, type: 'No especificado' }, { name: 'Psicología de la motivación', credits: 0, type: 'No especificado' }, { name: 'Métodos estadísticos aplicados a la psicología', credits: 0, type: 'No especificado' }, { name: 'Psicología fisiológica', credits: 0, type: 'No especificado' }, { name: 'Psicología del desarrollo I', credits: 0, type: 'No especificado' }, { name: 'Epistemología', credits: 0, type: 'No especificado' }] },
+                    { number: 4, subjects: [{ name: 'Psicodiagnóstico', credits: 0, type: 'No especificado' }, { name: 'Psicología clínica', credits: 0, type: 'No especificado' }, { name: 'Psicología de organizaciones', credits: 0, type: 'No especificado' }, { name: 'Psicología de desarrollo II', credits: 0, type: 'No especificado' }, { name: 'Psicología educativa', credits: 0, type: 'No especificado' }, { name: 'Psicología social', credits: 0, type: 'No especificado' }, { name: 'Psicometría', credits: 0, type: 'No especificado' }] },
+                    { number: 5, subjects: [{ name: 'Psicometría II', credits: 0, type: 'No especificado' }, { name: 'Psicología de la adolescencia', credits: 0, type: 'No especificado' }, { name: 'Patología del lenguaje', credits: 0, type: 'No especificado' }, { name: 'Psicología experimental', credits: 0, type: 'No especificado' }, { name: 'Entrevista psicológica', credits: 0, type: 'No especificado' }, { name: 'Taller de orientación educativa y vocacional', credits: 0, type: 'No especificado' }, { name: 'Administración de recursos humanos', credits: 0, type: 'No especificado' }] },
+                    { number: 6, subjects: [{ name: 'Diseño y análisis de la investigación en psicología', credits: 0, type: 'No especificado' }, { name: 'Ética profesional', credits: 0, type: 'No especificado' }, { name: 'Psicología del adulto', credits: 0, type: 'No especificado' }, { name: 'Trastornos de la personalidad', credits: 0, type: 'No especificado' }, { name: 'Educación especial y rehabilitación', credits: 0, type: 'No especificado' }, { name: 'Psicología de los recursos humanos', credits: 0, type: 'No especificado' }, { name: 'Teoría general de la neurosis', credits: 0, type: 'No especificado' }] },
+                    { number: 7, subjects: [{ name: 'Psicología infantil', credits: 0, type: 'No especificado' }, { name: 'Psicología del pensamiento', credits: 0, type: 'No especificado' }, { name: 'Capacitación y desarrollo de los recursos humanos', credits: 0, type: 'No especificado' }, { name: 'Manejo y conducción de grupos', credits: 0, type: 'No especificado' }, { name: 'Evaluación de la personalidad', credits: 0, type: 'No especificado' }, { name: 'Ergonomía', credits: 0, type: 'No especificado' }] },
+                    { number: 8, subjects: [{ name: 'Teoría psicoanalítica', credits: 0, type: 'No especificado' }, { name: 'Rehabilitación de la conducta I', credits: 0, type: 'No especificado' }, { name: 'Terapia familiar', credits: 0, type: 'No especificado' }, { name: 'Psicología cognitiva', credits: 0, type: 'No especificado' }, { name: 'Psicología de la salud y del bienestar social', credits: 0, type: 'No especificado' }, { name: 'Tanatología', credits: 0, type: 'No especificado' }] },
+                    { number: 9, subjects: [{ name: 'Seminario de psicología clínica', credits: 0, type: 'No especificado' }, { name: 'Rehabilitación de la conducta II', credits: 0, type: 'No especificado' }, { name: 'Seminario de psicología educativa', credits: 0, type: 'No especificado' }, { name: 'Intervención psicológica en adicciones', credits: 0, type: 'No especificado' }, { name: 'Psicofarmacología', credits: 0, type: 'No especificado' }, { name: 'Seminario de tesis', credits: 0, type: 'No especificado' }] }
+                ]
+            },
+            'Pedagogía': {
+                duration: 10, quarters: [
+                    { number: 1, subjects: [{ name: 'Herramientas metodológicas de la investigación', credits: 0, type: 'No especificado' }, { name: 'Filosofía de la Educación', credits: 0, type: 'No especificado' }, { name: 'Psicología de la educación', credits: 0, type: 'No especificado' }, { name: 'Antropología', credits: 0, type: 'No especificado' }, { name: 'Teoría Pedagógica', credits: 0, type: 'No especificado' }] },
+                    { number: 2, subjects: [{ name: 'Sociología de la Educación', credits: 0, type: 'No especificado' }, { name: 'Historia de la Educación', credits: 0, type: 'No especificado' }, { name: 'Desarrollo del infante', credits: 0, type: 'No especificado' }, { name: 'Métodos de la investigación educativa', credits: 0, type: 'No especificado' }, { name: 'Teorías Pedagógicas del aprendizaje', credits: 0, type: 'No especificado' }] },
+                    { number: 3, subjects: [{ name: 'Política educativa', credits: 0, type: 'No especificado' }, { name: 'Teorías Pedagógicas Clásicas', credits: 0, type: 'No especificado' }, { name: 'Desarrollo del adolescente', credits: 0, type: 'No especificado' }, { name: 'Estadística aplicada a la educación', credits: 0, type: 'No especificado' }, { name: 'Historia de la educación en México', credits: 0, type: 'No especificado' }] },
+                    { number: 4, subjects: [{ name: 'Didáctica', credits: 0, type: 'No especificado' }, { name: 'Pedagogía comparada', credits: 0, type: 'No especificado' }, { name: 'Economía de la educación', credits: 0, type: 'No especificado' }, { name: 'Psicotécnica pedagógica', credits: 0, type: 'No especificado' }, { name: 'Sistema educativo nacional', credits: 0, type: 'No especificado' }] },
+                    { number: 5, subjects: [{ name: 'Andragogía', credits: 0, type: 'No especificado' }, { name: 'Modelos de docencia', credits: 0, type: 'No especificado' }, { name: 'Pedagogía experimental', credits: 0, type: 'No especificado' }, { name: 'Legislación Educativa', credits: 0, type: 'No especificado' }, { name: 'Capacitación', credits: 0, type: 'No especificado' }] },
+                    { number: 6, subjects: [{ name: 'Planeación educativa', credits: 0, type: 'No especificado' }, { name: 'Psicopedagogía', credits: 0, type: 'No especificado' }, { name: 'Organización educativa', credits: 0, type: 'No especificado' }, { name: 'Diseño curricular', credits: 0, type: 'No especificado' }, { name: 'Organismos educativos internacionales', credits: 0, type: 'No especificado' }] },
+                    { number: 7, subjects: [{ name: 'Evaluación Educativa', credits: 0, type: 'No especificado' }, { name: 'Pedagogía social', credits: 0, type: 'No especificado' }, { name: 'Orientación educativa', credits: 0, type: 'No especificado' }, { name: 'Epistemología de la educación', credits: 0, type: 'No especificado' }, { name: 'Educación permanente', credits: 0, type: 'No especificado' }] },
+                    { number: 8, subjects: [{ name: 'Educación en américa latina', credits: 0, type: 'No especificado' }, { name: 'Educación basada en competencias', credits: 0, type: 'No especificado' }, { name: 'Evaluación de proyectos educativos', credits: 0, type: 'No especificado' }, { name: 'Comunicación educativa', credits: 0, type: 'No especificado' }, { name: 'Modelos Educativos y Estrategias Instrucciones', credits: 0, type: 'No especificado' }] },
+                    { number: 9, subjects: [{ name: 'Educación en Valores', credits: 0, type: 'No especificado' }, { name: 'Evaluación del aprendizaje', credits: 0, type: 'No especificado' }, { name: 'Administración y gestión de instituciones educativas', credits: 0, type: 'No especificado' }, { name: 'Educación especial', credits: 0, type: 'No especificado' }, { name: 'Didáctica y evaluación educativa', credits: 0, type: 'No especificado' }] },
+                    { number: 10, subjects: [{ name: 'Multiculturalidad y Educación Intercultural', credits: 0, type: 'No especificado' }, { name: 'Seminario de investigación', credits: 0, type: 'No especificado' }, { name: 'Deontología profesional', credits: 0, type: 'No especificado' }, { name: 'Pedagogía institucional', credits: 0, type: 'No especificado' }, { name: 'Educación tecnológica y a distancia', credits: 0, type: 'No especificado' }] }
+                ]
+            },
+            'Derecho': {
+                duration: 10, quarters: [
+                    { number: 1, subjects: [{ name: 'Introducción al Estudio del Derecho', credits: 0, type: 'No especificado' }, { name: 'Teoría Económica', credits: 0, type: 'No especificado' }, { name: 'Derecho Romano', credits: 0, type: 'No especificado' }, { name: 'Derecho civil de Personas y Familia', credits: 0, type: 'No especificado' }, { name: 'Sociología Jurídica', credits: 0, type: 'No especificado' }] },
+                    { number: 2, subjects: [{ name: 'Teoría Política', credits: 0, type: 'No especificado' }, { name: 'Derecho Penal', credits: 0, type: 'No especificado' }, { name: 'Argumentación Jurídica', credits: 0, type: 'No especificado' }, { name: 'Instituciones de Derecho Romano', credits: 0, type: 'No especificado' }, { name: 'Derecho Civil Bienes y Propiedad', credits: 0, type: 'No especificado' }] },
+                    { number: 3, subjects: [{ name: 'Derechos Humanos', credits: 0, type: 'No especificado' }, { name: 'Obligaciones Civiles', credits: 0, type: 'No especificado' }, { name: 'Delitos en Particular', credits: 0, type: 'No especificado' }, { name: 'Investigación Jurídica', credits: 0, type: 'No especificado' }, { name: 'Teoría General del proceso', credits: 0, type: 'No especificado' }] },
+                    { number: 4, subjects: [{ name: 'Derecho constitucional', credits: 0, type: 'No especificado' }, { name: 'Derecho individual del Trabajo', credits: 0, type: 'No especificado' }, { name: 'Sucesiones', credits: 0, type: 'No especificado' }, { name: 'Contratos civiles', credits: 0, type: 'No especificado' }, { name: 'Derecho Mercantil', credits: 0, type: 'No especificado' }] },
+                    { number: 5, subjects: [{ name: 'Derecho Procesal Penal', credits: 0, type: 'No especificado' }, { name: 'Filosofía del Derecho', credits: 0, type: 'No especificado' }, { name: 'Derecho Colectivo del Trabajo', credits: 0, type: 'No especificado' }, { name: 'Amparo', credits: 0, type: 'No especificado' }, { name: 'Historia del Derecho Mexicano', credits: 0, type: 'No especificado' }] },
+                    { number: 6, subjects: [{ name: 'Títulos y Operaciones de crédito', credits: 0, type: 'No especificado' }, { name: 'Derecho Procesal civil', credits: 0, type: 'No especificado' }, { name: 'Derecho Internacional publico', credits: 0, type: 'No especificado' }, { name: 'Derecho Procesal del trabajo', credits: 0, type: 'No especificado' }, { name: 'Practica de Amparo', credits: 0, type: 'No especificado' }] },
+                    { number: 7, subjects: [{ name: 'Derecho de la administración Pública', credits: 0, type: 'No especificado' }, { name: 'Contratos Mercantiles', credits: 0, type: 'No especificado' }, { name: 'Derecho Procesal Constitucional', credits: 0, type: 'No especificado' }, { name: 'Derecho internacional privado', credits: 0, type: 'No especificado' }, { name: 'Derecho del comercio internacional', credits: 0, type: 'No especificado' }] },
+                    { number: 8, subjects: [{ name: 'Derecho Bancario', credits: 0, type: 'No especificado' }, { name: 'Actos administrativos', credits: 0, type: 'No especificado' }, { name: 'Propiedad Intelectual', credits: 0, type: 'No especificado' }, { name: 'Practica forense de derecho civil', credits: 0, type: 'No especificado' }, { name: 'Derecho fiscal', credits: 0, type: 'No especificado' }] },
+                    { number: 9, subjects: [{ name: 'Derecho comparado', credits: 0, type: 'No especificado' }, { name: 'Informática Jurídica', credits: 0, type: 'No especificado' }, { name: 'Seguridad Social', credits: 0, type: 'No especificado' }, { name: 'Mecanismos alternos de Solución de Controversias', credits: 0, type: 'No especificado' }, { name: 'Derecho procesal fiscal', credits: 0, type: 'No especificado' }] },
+                    { number: 10, subjects: [{ name: 'Practicas forense de Derecho penal', credits: 0, type: 'No especificado' }, { name: 'Juicios orales', credits: 0, type: 'No especificado' }, { name: 'Ética profesional', credits: 0, type: 'No especificado' }, { name: 'Derecho notarial', credits: 0, type: 'No especificado' }, { name: 'Derecho electoral', credits: 0, type: 'No especificado' }] }
+                ]
+            }
+        };
+        // ======================================================================
+
+        // --- GLOBAL STATE ---
+        let currentUserId = null;
+
+        // --- DOM ELEMENTS ---
+        const loginSection = document.getElementById('loginSection');
+        const mainDashboard = document.getElementById('mainDashboard');
+        const detailedSection = document.getElementById('detailedSection');
+        const dashboardTitle = document.getElementById('dashboardTitle');
+        const dashboardContent = document.getElementById('dashboardContent');
+        const sectionTitle = document.getElementById('sectionTitle');
+        const sectionContent = document.getElementById('sectionContent');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginForm = document.getElementById('loginForm');
+
+        // --- HELPER FUNCTIONS ---
+        function fillId(id) {
+            document.getElementById('userId').value = id;
+            if (id.startsWith('EST-')) document.getElementById('userType').value = 'student';
+            else if (id.startsWith('PROF-')) document.getElementById('userType').value = 'professor';
+            else if (id.startsWith('ADM-')) document.getElementById('userType').value = 'admin'; // NUEVO: Lógica para Administrador
+        }
+        
+        function getTodayDate() { return '2025-09-27'; } // Hardcoded for demo consistency
+
+        // --- LOGIN & LOGOUT LOGIC ---
+        function handleLogin(event) {
+            event.preventDefault();
+            const userIdInput = document.getElementById('userId').value;
+            const userTypeInput = document.getElementById('userType').value;
+            const user = users[userIdInput];
+            if (user && user.type === userTypeInput) {
+                currentUserId = userIdInput;
+                loginSection.style.display = 'none';
+                mainDashboard.style.display = 'flex';
+                errorMessage.style.display = 'none';
+
+                // Lógica de ruteo al Dashboard según el tipo de usuario
+                if (user.type === 'student') populateStudentDashboard(user);
+                else if (user.type === 'professor') populateProfessorDashboard(user);
+                else if (user.type === 'admin') populateAdminDashboard(user); // NUEVO: Llamada al Dashboard de Admin
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function logout() {
+            currentUserId = null;
+            loginSection.style.display = 'flex';
+            mainDashboard.style.display = 'none';
+            detailedSection.style.display = 'none';
+            loginForm.reset();
+        }
+
+        // --- NAVIGATION ---
+        function backToDashboard() {
+            detailedSection.style.display = 'none';
+            mainDashboard.style.display = 'flex';
+            const user = users[currentUserId];
+            // Asegura que al volver al dashboard se cargue el correcto
+            if (user.type === 'student') populateStudentDashboard(user);
+            else if (user.type === 'professor') populateProfessorDashboard(user);
+            else if (user.type === 'admin') populateAdminDashboard(user);
+        }
+
+        // --- DASHBOARD POPULATION ---
+        function populateStudentDashboard(user) {
+            dashboardTitle.textContent = `Bienvenido, ${user.name}`;
+            const studentAssignments = getStudentAssignments(user);
+            dashboardContent.innerHTML = `
+                <div class="dashboard-card non-clickable">
+                    <h3>🧑‍🎓 Info Estudiante</h3>
+                    <div class="card-content">
+                        <p><strong>Carrera:</strong> ${user.career}</p>
+                        <p><strong>Cuatrimestre:</strong> ${user.semester}</p>
+                        <p><strong>Modalidad:</strong> ${user.modality}</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('studentGrades')">
+                    <h3>📊 Mis Calificaciones</h3>
+                    <div class="card-content">
+                        ${user.grades.map(g => `<div class="grade-item"><span>${g.subject}</span><span class="grade">${g.grade}</span></div>`).join('')}
+                        <p style="margin-top: 1rem;">Ver todas...</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('studentSchedule')">
+                    <h3>🗓️ Mi Horario</h3>
+                    <div class="card-content">
+                        ${user.schedule.slice(0, 2).map(s => `<div class="schedule-item-summary"><span>${s.subject}</span><span class="schedule-time">${s.time}</span></div>`).join('')}
+                        <p style="margin-top: 1rem;">Ver completo...</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('studentAssignments')">
+                    <h3>📝 Tareas Pendientes</h3>
+                    <div class="card-content">
+                        ${studentAssignments.length > 0 ?
+                            studentAssignments.slice(0, 2).map(a => `<div class="assignment-item"><span>${a.title} (${a.subject})</span><span class="status-pendiente">Vence: ${a.dueDate}</span></div>`).join('') : '<p>No tienes tareas pendientes.</p>'}
+                        ${studentAssignments.length > 2 ?
+                            '<p style="margin-top: 1rem;">Ver todas...</p>' : ''}
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('studentMaterials')">
+                    <h3>📚 Material de Estudio</h3>
+                    <div class="card-content">
+                        ${user.schedule.slice(0, 3).map(s => academicMaterials[s.subject] ? `<div class="material-item"><span>${s.subject}</span><span>${academicMaterials[s.subject].length} archivo(s)</span></div>` : '').join('')}
+                        <p style="margin-top: 1rem;">Ver todo el material...</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('studentStudyPlan')">
+                    <h3>🏛️ Plan de Estudios</h3>
+                    <div class="card-content">
+                        <p>Consulta la ruta académica de tu carrera: <strong>${user.career}</strong>.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function populateProfessorDashboard(user) {
+            dashboardTitle.textContent = `Bienvenido, ${user.name}`;
+            dashboardContent.innerHTML = `
+                <div class="dashboard-card non-clickable">
+                    <h3>🧑‍🏫 Info Docente</h3>
+                    <div class="card-content">
+                        <p><strong>Departamento:</strong> ${user.department}</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('professorClasses')">
+                    <h3>📚 Gestionar Clases</h3>
+                    <div class="card-content">
+                        ${user.classes.map(c => `<div class="schedule-item-summary"><span>${c.subject}</span><span>${c.students.length} estudiantes</span></div>`).join('')}
+                        <p style="margin-top: 1rem;">Seleccionar clase...</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('professorMaterials')">
+                    <h3>📖 Material Académico</h3>
+                    <div class="card-content">
+                        <p>Comparte y gestiona material de estudio con tus alumnos.</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('schoolCalendar')">
+                    <h3>📅 Calendario Escolar</h3>
+                    <div class="card-content">
+                        <p>Consulta fechas importantes del ciclo académico.</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // NUEVO: Dashboard para Administrador
+        function populateAdminDashboard(user) {
+            dashboardTitle.textContent = `Panel de Administración, ${user.name}`;
+            dashboardContent.innerHTML = `
+                <div class="dashboard-card non-clickable">
+                    <h3>🛡️ Info Admin</h3>
+                    <div class="card-content">
+                        <p><strong>Nivel de Acceso:</strong> ${user.accessLevel}</p>
+                        <p><strong>Departamento:</strong> ${user.department}</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('adminUserManagement')">
+                    <h3>👥 Gestión de Usuarios</h3>
+                    <div class="card-content">
+                        <p>Visualizar y modificar perfiles de estudiantes y docentes. (Total: ${Object.keys(users).length} usuarios)</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('adminSystemLogs')">
+                    <h3>💻 Logs del Sistema</h3>
+                    <div class="card-content">
+                        <p>Monitoreo de actividad y estado del portal. (Último log: ${getTodayDate()} 10:20)</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('adminAcademicSetup')">
+                    <h3>⚙️ Configuración Académica</h3>
+                    <div class="card-content">
+                        <p>Administración de carreras, asignaturas y planes de estudio.</p>
+                    </div>
+                </div>
+                <div class="dashboard-card" onclick="showDetailedView('schoolCalendar')">
+                    <h3>📅 Calendario Escolar (Vista Total)</h3>
+                    <div class="card-content">
+                        <p>Consulta y edita los eventos académicos principales.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getStudentAssignments(user) {
+            let pendingAssignments = [];
+            user.schedule.forEach(s => {
+                if (assignments[s.subject]) {
+                    assignments[s.subject].forEach(a => {
+                        if (a.submissions[currentUserId]?.status === 'Pendiente') {
+                            pendingAssignments.push({ ...a, subject: s.subject });
+                        }
+                    });
+                }
+            });
+            return pendingAssignments;
+        }
+
+        // --- DETAILED VIEW LOGIC ---
+        function showDetailedView(viewType, context) {
+            const user = users[currentUserId];
+            if (!user) return;
+
+            mainDashboard.style.display = 'none';
+            detailedSection.style.display = 'flex';
+            sectionContent.innerHTML = '';
+            switch (viewType) {
+                case 'studentGrades':
+                    sectionTitle.textContent = 'Mis Calificaciones';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card">
+                            <h3>Resumen de Calificaciones (${user.semester})</h3>
+                            <div class="card-content">
+                                ${user.grades.map(g => `<div class="grade-item"><span>${g.subject}</span><span class="grade">${g.grade}</span></div>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'studentSchedule':
+                    sectionTitle.textContent = 'Mi Horario Completo';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card">
+                            <h3>Horario de Clases (${user.modality})</h3>
+                            <div class="card-content">
+                                ${user.schedule.map(s => `
+                                    <div class="schedule-item">
+                                        <p><span class="schedule-time">${s.time}</span> - <strong>${s.subject}</strong></p>
+                                        <p><strong>Aula:</strong> ${s.room} | <strong>Docente:</strong> ${s.professor}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'studentAssignments':
+                    sectionTitle.textContent = 'Todas mis Tareas';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card">
+                            <h3>Listado de Tareas</h3>
+                            <div class="card-content">
+                                ${getStudentAssignments(user).map(a => `
+                                    <div class="assignment-item">
+                                        <div><strong>${a.title}</strong><br><small>${a.subject}</small></div>
+                                        <span class="status-pendiente">Vence: ${a.dueDate}</span>
+                                    </div>
+                                `).join('') || '<p>🎉 ¡Felicidades! No tienes tareas pendientes.</p>'}
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'studentMaterials':
+                    sectionTitle.textContent = 'Material de Estudio';
+                    let studentMaterialHtml = '';
+                    user.schedule.forEach(s => {
+                        if (academicMaterials[s.subject]) {
+                            studentMaterialHtml += `<div class="dashboard-card non-clickable" style="margin-bottom: 1.5rem;">
+                                <h3>📚 ${s.subject}</h3>
+                                <div class="card-content">
+                                    ${academicMaterials[s.subject].map(m => `
+                                        <div class="material-item">
+                                            <span>${m.title} (${m.type})</span>
+                                            <span>${m.size}</span>
+                                        </div>
+                                    `).join('')}
+                                    <button class="action-btn" style="margin-top: 1rem; width: auto; background: #4682B4;">Descargar Todo</button>
+                                </div>
+                            </div>`;
+                        }
+                    });
+                    sectionContent.innerHTML = studentMaterialHtml || '<p>Aún no hay material disponible para tus asignaturas actuales.</p>';
+                    break;
+                case 'studentStudyPlan':
+                    sectionTitle.textContent = `Plan de Estudios: ${user.career}`;
+                    const plan = studyPlans[user.career];
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Estructura Curricular (Duración: ${plan.duration} Cuatrimestres)</h3>
+                            ${plan.quarters.map(q => `
+                                <div style="margin-bottom: 1.5rem; padding-top: 1rem; border-top: 1px dashed #ccc;">
+                                    <h4>Cuatrimestre ${q.number}</h4>
+                                    <table style="margin-top: 0;">
+                                        <thead><tr><th>Asignatura</th><th>Créditos</th><th>Tipo</th></tr></thead>
+                                        <tbody>
+                                            ${q.subjects.map(s => `<tr><td>${s.name}</td><td>${s.credits}</td><td>${s.type}</td></tr>`).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    break;
+                case 'professorClasses':
+                    sectionTitle.textContent = 'Selecciona una Clase para Gestionar';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Mis Asignaturas</h3>
+                            <div class="card-content">
+                                ${user.classes.map(c => `
+                                    <div class="schedule-item-summary clickable-row" onclick="showDetailedView('professorClassDetails', '${c.subject}')" style="cursor:pointer; background: rgba(135,206,235,0.1); border-radius: 8px; margin: 0.5rem 0; padding: 1rem;">
+                                        <span><strong>${c.subject}</strong> (${c.room})</span>
+                                        <span>Gestionar alumnos y tareas ➡️</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'professorClassDetails':
+                    const subjectName = context;
+                    const classInfo = user.classes.find(c => c.subject === subjectName);
+                    sectionTitle.textContent = `Gestión: ${subjectName}`;
+                    const studentList = classInfo.students.map(studentId => {
+                        const s = users[studentId];
+                        return `
+                            <tr class="clickable-row">
+                                <td>${studentId}</td>
+                                <td>${s.name}</td>
+                                <td><span class="attendance-toggle attendance-Presente" onclick="toggleAttendance('${subjectName}', '2025-09-27', '${studentId}', this)">Presente</span></td>
+                                <td><button class="action-btn" style="width: auto; margin: 0; padding: 0.5rem 1rem;">Calificar</button></td>
+                            </tr>
+                        `;
+                    }).join('');
+
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable" style="margin-bottom: 2rem;">
+                            <h3>📋 Alumnos y Asistencia (${getTodayDate()})</h3>
+                            <table style="font-size: 0.9rem;">
+                                <thead><tr><th>ID</th><th>Nombre</th><th>Asistencia</th><th>Acción</th></tr></thead>
+                                <tbody>${studentList}</tbody>
+                            </table>
+                            <p style="margin-top: 1rem; color: #6B8E23;">(El estado de Asistencia es editable para la demo)</p>
+                        </div>
+                        <div class="dashboard-card non-clickable">
+                            <h3>📝 Tareas y Calificaciones</h3>
+                            <div class="card-content">
+                                ${assignments[subjectName]?.map(a => `
+                                    <div class="assignment-item">
+                                        <div><strong>${a.title}</strong><br><small>Vence: ${a.dueDate}</small></div>
+                                        <span>${Object.values(a.submissions).filter(sub => sub.status === 'Entregado').length} entregado(s)</span>
+                                    </div>
+                                `).join('') || `<p>No hay tareas registradas para ${subjectName}.</p>`}
+                                <button class="action-btn" style="margin-top: 1rem; width: auto;">+ Crear Nueva Tarea</button>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'professorMaterials':
+                    sectionTitle.textContent = 'Carga de Material Académico';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Subir Nuevo Recurso</h3>
+                            <form style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="form-group"><label>Asignatura:</label><select><option>Matemáticas Aplicadas</option><option>Física General</option></select></div>
+                                <div class="form-group"><label>Título:</label><input type="text" placeholder="Ej: Presentación Unidad 1"></div>
+                                <div class="form-group"><label>Archivo (Simulado):</label><input type="file"></div>
+                                <button type="button" class="action-btn">Subir Material</button>
+                            </form>
+                            <p style="margin-top: 1rem; color: #666;">(Función simulada: Los archivos no se guardarán)</p>
+                        </div>
+                    `;
+                    break;
+                case 'schoolCalendar':
+                    sectionTitle.textContent = 'Calendario Académico Central';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Eventos Importantes del Cuatrimestre</h3>
+                            <div class="card-content">
+                                ${schoolCalendar.map(item => `
+                                    <div class="calendar-item ${item.type}">
+                                        <strong>${item.date}</strong><br>
+                                        ${item.description} (${item.type.charAt(0).toUpperCase() + item.type.slice(1)})
+                                    </div>
+                                `).join('')}
+                                ${user.type === 'admin' ?
+                                    '<button class="action-btn" style="margin-top: 1rem; width: auto; background: #d32f2f;">+ Añadir Evento (Admin)</button>' : ''}
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                // NUEVO: Casos para el Dashboard de Administrador
+                case 'adminUserManagement':
+                    sectionTitle.textContent = 'Gestión de Usuarios';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Lista de Usuarios (${Object.keys(users).length})</h3>
+                            <table style="font-size: 0.9rem;">
+                                <thead><tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Acción</th></tr></thead>
+                                <tbody>
+                                    ${Object.entries(users).map(([id, u]) => `
+                                        <tr class="clickable-row">
+                                            <td>${id}</td>
+                                            <td>${u.name}</td>
+                                            <td>${u.type.charAt(0).toUpperCase() + u.type.slice(1)}</td>
+                                            <td><button class="action-btn" style="width: auto; margin: 0; padding: 0.5rem 1rem; background: #4682B4;">Ver Perfil</button></td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                            <p style="margin-top: 1rem; color: #d32f2f;">(La acción "Ver Perfil" es simulada en esta demo)</p>
+                            <button class="action-btn" style="margin-top: 1rem; width: auto; background: #2c5530;">+ Añadir Nuevo Usuario</button>
+                        </div>
+                    `;
+                    break;
+                case 'adminSystemLogs':
+                    sectionTitle.textContent = 'Logs del Sistema (Simulado)';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Registros Recientes del Portal</h3>
+                            <div class="card-content">
+                                <div class="schedule-item"><strong>[${getTodayDate()} 10:20:01]</strong> User ADM-2024-001 logged in. (Access: SuperUser)</div>
+                                <div class="schedule-item" style="background: rgba(255, 0, 0, 0.1); border-left: 4px solid red;"><strong>[${getTodayDate()} 09:55:30]</strong> ERROR: Database query took 5.2s (Threshold: 3.0s).</div>
+                                <div class="schedule-item"><strong>[${getTodayDate()} 09:30:45]</strong> Attendance recorded for Física General by PROF-2024-102.</div>
+                                <div class="schedule-item"><strong>[${getTodayDate()} 08:00:00]</strong> System maintenance completed successfully.</div>
+                                <div class="schedule-item"><strong>[2025-09-26 18:45:12]</strong> User PROF-2024-102 uploaded new material. (File: Manual_Fisica_G.pdf)</div>
+                                <p style="margin-top: 1rem; color: #666;">Esta es una simulación de los registros operativos del portal. Los errores se muestran en rojo.</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'adminAcademicSetup':
+                    sectionTitle.textContent = 'Configuración Académica';
+                    sectionContent.innerHTML = `
+                        <div class="dashboard-card non-clickable">
+                            <h3>Planes de Estudio Activos</h3>
+                            <div class="card-content">
+                                ${Object.keys(studyPlans).map(career => `
+                                    <div class="grade-item">
+                                        <span>${career}</span>
+                                        <span style="font-weight: bold; color: #2c5530;">${studyPlans[career].duration} Cts.</span>
+                                    </div>
+                                `).join('')}
+                                <button class="action-btn" style="margin-top: 1.5rem; width: auto;">+ Crear Nueva Carrera / Plan</button>
+                                <p style="margin-top: 1rem; color: #d32f2f;">(Funcionalidad de Edición Simulada)</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+        }
+        
+        // Función simulada para cambiar asistencia
+        function toggleAttendance(subject, date, studentId, element) {
+            const currentStatus = attendance[subject][date][studentId];
+            let newStatus = '';
+            
+            if (currentStatus === 'Presente') {
+                newStatus = 'Ausente';
+            } else if (currentStatus === 'Ausente') {
+                newStatus = 'Pendiente';
+            } else {
+                newStatus = 'Presente';
+            }
+            
+            attendance[subject][date][studentId] = newStatus;
+            element.textContent = newStatus;
+            element.className = 'attendance-toggle attendance-' + newStatus;
+            
+            // Simulación de guardado
+            console.log(`Asistencia de ${studentId} en ${subject} actualizada a: ${newStatus}`);
+        }
+
+        // --- INITIAL LOAD ---
+        window.onload = () => {
+             // Si hay un ID de usuario en sesión (simulada), ir al dashboard, sino, mostrar login
+            if (currentUserId) {
+                const user = users[currentUserId];
+                if (user.type === 'student') populateStudentDashboard(user);
+                else if (user.type === 'professor') populateProfessorDashboard(user);
+                else if (user.type === 'admin') populateAdminDashboard(user);
+                loginSection.style.display = 'none';
+                mainDashboard.style.display = 'flex';
+            } else {
+                loginSection.style.display = 'flex';
+                mainDashboard.style.display = 'none';
+                detailedSection.style.display = 'none';
+            }
+        };
+
+  </script>
+</body>
+</html>
