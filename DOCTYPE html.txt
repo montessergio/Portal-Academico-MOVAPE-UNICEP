@@ -425,7 +425,7 @@
     </div>
 
     <div class="container">
-        <div class="Login Section" id="loginSection">
+        <div class="login section" id="loginSection">
         
             <div class="logo">
                 <h1>Fundación MOVAPE/UNICEP</h1>
@@ -1104,4 +1104,5 @@
     </script>
 </body>
 </html>
+
 
