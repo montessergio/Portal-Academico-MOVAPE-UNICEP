@@ -1,86 +1,197 @@
 🎓 Portal Académico MOVAPE/UNICEP
-✨ Visión General
-El Portal Académico MOVAPE/UNICEP es una aplicación web prototipo diseñada para simular la experiencia de un sistema de gestión de información universitaria, sirviendo como una prueba de concepto (PoC) rápida y funcional. Nuestro objetivo principal es crear una interfaz digital intuitiva y unificada que brinde a estudiantes, docentes y administradores acceso en tiempo real a información académica crucial, simplificando los procesos y mejorando la comunicación interna.
-Este proyecto fue desarrollado íntegramente en un único archivo HTML, CSS y JavaScript (Vanilla JS), demostrando un enfoque de prototipado rápido y frontend-first.
-________________________________________
-🎯 Objetivo de Producto
-El objetivo principal de este producto es transformar la Fundación MOVAPE/UNICEP en una institución educativa completamente digitalizada, proporcionando una plataforma centralizada y multi-rol que simplifique la gestión académica y fortalezca la comunicación entre todos los actores.
-Declaración del Objetivo
-Aumentar la eficiencia administrativa y la transparencia académica en un 25% durante el primer año de operación, centralizando el acceso a calificaciones, horarios, materiales y herramientas de gestión (asistencia y tareas) para estudiantes, docentes y administradores en un único ecosistema digital de fácil acceso.
-🗺️ Estrategia de Producto
-Nuestra estrategia se centrará en la digitalización de la experiencia académica integral, utilizando la estructura de roles (Estudiante, Docente, Administrador) ya definida en el prototipo para desarrollar un producto de alto valor y usabilidad para cada segmento.
-1. Propuesta de Valor Central
-   Para Estudiantes: Ser la fuente única de verdad para su progreso académico y su vida universitaria.
-   Para Docentes: Simplificar y automatizar las tareas administrativas de gestión de clases (listas, tareas y materiales).
-   Para Administradores: Ofrecer una visibilidad completa del ciclo educativo y la actividad institucional.
-2. Segmentación de la Experiencia y Roadmap
-  El prototipo actual (HTML/CSS/JS con datos fijos) valida la interfaz y los flujos básicos. La estrategia de desarrollo debe enfocarse en la transición a un sistema dinámico y funcional.
-3. Estrategia Tecnológica y de Crecimiento
-   Validación Tecnológica (Fase 1 - Core): La prioridad inmediata es migrar la data fija a una base de datos escalable y segura (como Firestore o PostgreSQL) e implementar un sistema de autenticación real (no demo) para garantizar la privacidad y la integridad de los datos académicos.
-  Iteración de Valor (Fase 2 - Expansión): Enfocarse en completar los flujos críticos del docente (Asistencia y Calificación), ya que estos impulsan la utilidad del portal para el segmento más activo.
-  Retención y Mejora (Fase 3 - Optimización): Implementar características de comunicación proactiva, como notificaciones en tiempo real para nuevas tareas, cambios de horario o anuncios importantes, y optimizar el portal para un rendimiento impecable en dispositivos móviles (ya que muchos estudiantes acceden desde el móvil).
-4. Métricas Clave de Desempeño (KPIs)
-   Adopción: Tasa de inicio de sesión semanal de Estudiantes y Docentes.
-   Impacto de Eficiencia (Docentes): Porcentaje de asistencia registrada a través del portal vs. métodos manuales.
-   Compromiso (Estudiantes): Tasa de acceso al Material de Estudio y Tasa de Entrega de Tareas a tiempo.
-   Estabilidad: Tiempo de actividad del portal (uptime) y tasa de errores de inicio de sesión.
-🚀 Características y Funcionalidades (Demo)
-El portal simula la experiencia de usuario a través de tres roles clave, cada uno con su propio conjunto de información y funcionalidades principales:
-🧑‍🎓 Rol: Estudiante
-Funcionalidad	Descripción
-Info Estudiante	Visualización de datos de carrera, cuatrimestre y modalidad.
-Mis Calificaciones	Resumen y detalle de las notas por asignatura.
-Mi Horario	Consulta del horario de clases, incluyendo aula y docente.
-Tareas Pendientes	Seguimiento de las tareas no entregadas con fechas de vencimiento.
-Material de Estudio	Acceso al material de apoyo subido por los docentes.
-Plan de Estudios	Visualización detallada de la malla curricular por cuatrimestre y asignaturas.
-🧑‍🏫 Rol: Docente
-Funcionalidad	Descripción
-Gestionar Clases	Lista de las asignaturas a cargo y número de estudiantes.
-Material de Clase	Gestión (subida y revisión) del material didáctico para cada asignatura.
-Asignaciones/Tareas	Creación y revisión del estado de entrega de las tareas por parte de los alumnos.
-Toma de Asistencia	Herramienta para registrar la asistencia de los estudiantes por fecha y clase.
-⚙️ Rol: Administrador
-Funcionalidad	Descripción
-Calendario Académico	Gestión y visualización de eventos, días festivos y periodos de examen.
-Anuncios Globales	Herramienta para publicar comunicaciones oficiales a toda la comunidad.
-Gestión de Cuentas	Acceso simulado a la base de datos de usuarios (estudiantes y docentes).
-________________________________________
-🛠️ Stack Tecnológico
-Dada la naturaleza de prototipo rápido, la solución se basa en tecnologías puras y ligeras:
-•	HTML5: Estructura base del portal.
-•	CSS3 (Vanilla CSS): Estilización, diseño responsivo y efectos visuales (fondo animado con esferas).
-•	JavaScript (Vanilla JS): Lógica de la aplicación, manejo de eventos, simulación de backend (datos almacenados en objetos JS) y renderizado de dashboards.
-________________________________________
-📂 Estructura del Proyecto
-El código reside en un único archivo, encapsulando la presentación y la lógica:
-├── index.html (Contiene HTML, CSS y JavaScript)
-Nota: En un proyecto real, se implementaría una estructura modular con backend (Node.js, Python, etc.) y una base de datos robusta (SQL, NoSQL) para la persistencia de datos y una separación limpia de las responsabilidades (arquitectura MVC o similar).
-________________________________________
-🔑 Acceso de Demostración
-Para explorar la funcionalidad simulada, utiliza los siguientes IDs en la pantalla de Login. ¡Simplemente haz clic en el ID para autocompletar el campo!
+Prototipo de Sistema de Gestión Académica Multi-Rol
+1. Descripción General
+
+El Portal Académico MOVAPE/UNICEP es un prototipo funcional de un sistema de gestión académica diseñado para centralizar información institucional y digitalizar procesos universitarios.
+
+El proyecto simula una plataforma multi-rol para:
+
+Estudiantes
+
+Docentes
+
+Administradores
+
+El objetivo es validar flujos de interacción, estructura de información y arquitectura funcional antes de escalar hacia una solución con backend y base de datos real.
+
+Este prototipo fue desarrollado de forma individual bajo un enfoque de prototipado rápido.
+
+2. Objetivo del Producto
+
+Diseñar una plataforma digital centralizada que permita:
+
+Acceso estructurado a información académica.
+
+Automatización de procesos administrativos.
+
+Mejora en la trazabilidad académica.
+
+Reducción de fricción operativa entre roles.
+
+Objetivo estratégico planteado
+
+Incrementar la eficiencia administrativa y la transparencia académica en un 25% durante el primer año de operación mediante digitalización de procesos clave.
+
+3. Enfoque de Desarrollo
+
+El desarrollo se realizó bajo un enfoque:
+
+Frontend-first.
+
+Prototipo funcional rápido (PoC).
+
+Simulación de backend mediante objetos JavaScript.
+
+Validación de experiencia de usuario antes de escalar infraestructura.
+
+4. Stack Tecnológico
+
+HTML5 → Estructura base del sistema.
+
+CSS3 (Vanilla CSS) → Diseño responsivo y elementos visuales.
+
+JavaScript (Vanilla JS) → Lógica de negocio, manejo de roles, renderizado dinámico y simulación de datos.
+
+Todo el sistema está encapsulado en un único archivo:
+
+index.html (contiene HTML, CSS y JavaScript)
+5. Arquitectura Funcional
+
+El sistema simula tres perfiles con permisos diferenciados:
+
+🧑‍🎓 Estudiante
+
+Consulta de calificaciones.
+
+Visualización de horario.
+
+Seguimiento de tareas pendientes.
+
+Acceso a material de estudio.
+
+Visualización del plan curricular.
+
+🧑‍🏫 Docente
+
+Gestión de asignaturas.
+
+Carga de material didáctico.
+
+Creación y revisión de tareas.
+
+Registro de asistencia.
+
+⚙️ Administrador
+
+Gestión de calendario académico.
+
+Publicación de anuncios globales.
+
+Supervisión de cuentas institucionales.
+
+6. Estrategia de Evolución del Producto
+Fase 1 – Infraestructura Base
+
+Migración de datos simulados a base de datos real (PostgreSQL o Firestore).
+
+Implementación de autenticación segura.
+
+Separación frontend/backend.
+
+Fase 2 – Consolidación Funcional
+
+Automatización completa de registro de asistencia.
+
+Gestión estructurada de evaluaciones.
+
+Panel administrativo con métricas operativas.
+
+Fase 3 – Optimización
+
+Sistema de notificaciones en tiempo real.
+
+Optimización móvil.
+
+Implementación de mensajería interna.
+
+7. KPIs Propuestos
+Adopción
+
+Tasa de inicio de sesión semanal.
+
+Número de usuarios activos por rol.
+
+Eficiencia Docente
+
+Porcentaje de asistencia registrada digitalmente.
+
+Reducción de procesos manuales.
+
+Compromiso Estudiantil
+
+Tasa de entrega de tareas.
+
+Frecuencia de acceso a materiales.
+
+Estabilidad
+
+Uptime del sistema.
+
+Tasa de errores de autenticación.
+
+8. Acceso de Demostración
+
+Para explorar el sistema:
+
 Rol	ID de Usuario
 Administrador	ADM-2024-001
 Estudiante	EST-2024-001
 Docente	PROF-2024-101
-Exportar a Hojas de cálculo
-________________________________________
-👤 Equipo del Proyecto
-Rol	Miembro
-Gerente de Producto (Product Manager)	Sergio Montes Cruz
-Desarrollador Frontend	OPEN AI-CANVA,CURSOR,GEMINI,GITHUB COPILOT (desarrollo en solitario/equipo ágil)
-Diseñador UX/UI	OPEN AI- CANVA,CURSOR,GEMINI,GITHUB COPILOT (diseño rápido e integrado)
+9. Rol del Proyecto
 
-Como Gerente de Producto, mi enfoque está en validar la funcionalidad central, la experiencia de usuario de los tres roles principales y asegurar que esta PoC refleje la visión académica de MOVAPE/UNICEP.
-________________________________________
-💬 Próximos Pasos (Hoja de Ruta)
-Una vez validada la demo actual, las siguientes fases de desarrollo incluirán:
-1.	Separación de la Lógica: Migrar la lógica de datos y usuarios a un backend real con una base de datos para una solución escalable.
-2.	Módulos Avanzados: Desarrollar completamente los módulos de mensajería interna, foros de discusión y gestión de pagos/colegiaturas.
-3.	Refinamiento UX/UI: Aplicar un diseño de interfaz más alineado con la identidad corporativa de MOVAPE/UNICEP.
-4.	Implementacion de Mensajeria: Implementar un sistema comunicacion a traves de correos electronicos vinculados con el portal estudiantil.
-________________________________________
-¡Agradezco a todos los colaboradores por el esfuerzo en este prototipo inicial! Sus comentarios son vitales para llevar el Portal Académico al siguiente nivel.
-Sergio Montes Cruz Gerente de Producto | Portal Académico MOVAPE/UNICEP
+Gerente de Producto y Desarrollador del Prototipo:
+Sergio Montes Cruz
 
+Responsabilidades asumidas:
 
+Definición de visión y alcance.
+
+Diseño de arquitectura funcional.
+
+Desarrollo frontend completo.
+
+Definición de roadmap.
+
+Establecimiento de métricas de desempeño.
+
+Simulación de modelo de negocio digital.
+
+Desarrollo realizado individualmente utilizando herramientas de asistencia de código e IA generativa como apoyo técnico.
+
+10. Limitaciones del Prototipo
+
+No cuenta con backend real.
+
+No existe persistencia de datos.
+
+Sistema de autenticación simulado.
+
+Arquitectura no modularizada.
+
+Este repositorio representa una prueba de concepto funcional enfocada en validar diseño, flujos y estructura antes de escalar a una solución productiva.
+
+11. Conclusión
+
+El Portal Académico MOVAPE/UNICEP demuestra:
+
+Capacidad de estructuración de producto digital.
+
+Definición estratégica de roadmap tecnológico.
+
+Pensamiento orientado a métricas.
+
+Diseño multi-rol.
+
+Implementación funcional frontend.
+
+Este proyecto refleja competencias en análisis de sistemas, gestión de producto y desarrollo web básico orientado a soluciones organizacionales.
