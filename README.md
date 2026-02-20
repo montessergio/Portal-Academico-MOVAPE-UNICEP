@@ -195,3 +195,6 @@ Diseño multi-rol.
 Implementación funcional frontend.
 
 Este proyecto refleja competencias en análisis de sistemas, gestión de producto y desarrollo web básico orientado a soluciones organizacionales.
+
+## Live Demo
+https://montessergio.github.io/Portal-Academico-MOVAPE-UNICEP/
