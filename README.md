@@ -1,44 +1,48 @@
 # Portal de Gestión Académica Integral - MOVAPE / UNICEP 🎓
 
-Este proyecto consiste en una plataforma digital diseñada para la gestión administrativa y académica de la **Fundación MOVAPE / UNICEP**. El sistema integra de manera dinámica tres niveles de acceso, permitiendo el control total sobre la trayectoria educativa de los estudiantes y la carga académica docente.
+> ### 🌐 [ACCEDER AL PORTAL EN VIVO](https://montessergio.github.io/Portal-Acad-mico-MOVAPE-UNICEP/)
+
+Este ecosistema digital ha sido desarrollado para centralizar la administración escolar de la **Fundación MOVAPE / UNICEP**. El sistema ofrece una arquitectura robusta que gestiona planes de estudio de hasta 10 cuatrimestres, control de usuarios y repositorios de materiales académicos en tiempo real.
 
 ---
 
 ## 🏛️ Arquitectura del Sistema
 
-El portal está estructurado bajo un modelo de datos centralizado que permite la interacción en tiempo real entre los siguientes perfiles:
+La plataforma se segmenta en tres perfiles operativos con permisos jerárquicos:
 
-### 1. Panel Administrativo (Root) 🛡️
-* **Gestión de Usuarios:** Control de altas, bajas y cambios de estatus académico.
-* **Configuración Curricular:** Capacidad de modificar planes de estudio y mallas académicas.
-* **Auditoría de Cambios:** Registro de responsabilidad sobre las actualizaciones del sistema.
-* **Asignación Docente:** Gestión de asignaturas impartidas por catedrático.
+### 1. Panel Administrativo (Nivel Root) 🛡️
+Es el núcleo de control del sistema. Permite supervisar la integridad de la institución:
+* **Gestión de Usuarios:** Alta y baja de alumnos (Estatus Activo/Baja).
+* **Modificación Académica:** Cambio de carrera y modalidad para los estudiantes.
+* **Asignación de Cátedra:** Control sobre las materias que cada docente imparte.
+* **Configuración de Mallas:** Edición de materias dentro de los planes de estudio oficiales.
 
-### 2. Panel Docente 👨‍🏫
-* **Control Escolar:** Herramientas para el registro de asistencia y evaluación.
-* **Repositorio Digital:** Sistema de carga de material didáctico específico por materia.
-* **Sincronización:** Vinculación automática de archivos con el perfil del estudiante.
+### 2. Panel del Personal Docente 👨‍🏫
+Herramientas diseñadas para el seguimiento del aprendizaje:
+* **Control de Asistencia:** Gestión de listas por asignatura.
+* **Gestión de Contenidos:** Carga de archivos y manuales de estudio.
+* **Evaluación:** Registro de calificaciones que se sincronizan con el perfil del alumno.
 
 ### 3. Portal del Estudiante 👤
-* **Seguimiento Académico:** Consulta de calificaciones y progreso cuatrimestral.
-* **Biblioteca Virtual:** Descarga de materiales compartidos por los docentes.
-* **Planes de Estudio:** Acceso a la malla curricular completa (9 y 10 cuatrimestres) de las 5 carreras principales.
+Interfaz enfocada en la experiencia de usuario (UX) y consulta:
+* **Kardex Digital:** Visualización de calificaciones por cuatrimestre.
+* **Biblioteca de Clase:** Acceso directo a materiales subidos por sus profesores.
+* **Plan de Estudios Completo:** Visualización de la malla curricular total (9 y 10 cuatrimestres).
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+## ⚙️ Especificaciones Técnicas
 
-Para garantizar una experiencia de usuario (UX) fluida y una implementación ligera, se han utilizado las siguientes tecnologías:
-
-* **HTML5:** Estructura semántica del portal.
-* **CSS3:** Diseño responsivo basado en variables modernas y gradientes estéticos.
-* **JavaScript (Vanilla):** Lógica de negocio, gestión de sesiones y base de datos simulada en memoria.
+El proyecto se rige bajo estándares de desarrollo web moderno (Vanilla Stack), garantizando portabilidad y velocidad:
+* **Frontend:** HTML5 Semántico y CSS3 con diseño responsivo.
+* **Lógica:** JavaScript ES6+ para la gestión dinámica de datos y sesiones.
+* **Despliegue:** GitHub Pages para visualización inmediata.
 
 ---
 
-## 📂 Carreras Integradas
+## 📂 Carreras y Planes de Estudio Integrados
 
-El sistema soporta actualmente los planes de estudio completos para:
+El sistema incluye las mallas curriculares completas para las siguientes licenciaturas e ingenierías:
 * ⚙️ **Ingeniería Industrial**
 * ⚖️ **Derecho**
 * 🧠 **Psicología**
@@ -47,23 +51,20 @@ El sistema soporta actualmente los planes de estudio completos para:
 
 ---
 
-## 🔑 Credenciales de Demostración
+## 🔑 Credenciales de Acceso (Demo)
 
-Para evaluar las funcionalidades, utilice los siguientes identificadores:
+Para explorar todas las funcionalidades, puede utilizar las siguientes cuentas integradas:
 
-| Perfil | ID de Acceso |
-| :--- | :--- |
-| **Administrador** | `ADMIN-01` |
-| **Docente** | `PROF-101` |
-| **Estudiante** | `EST-001` a `EST-005` |
-
----
-
-## 🛠️ Instalación y Uso
-
-1. Clone el repositorio o descargue el archivo `index.html`.
-2. Ejecute el archivo en cualquier navegador web moderno.
-3. No requiere dependencias externas ni configuración de servidores, facilitando su portabilidad.
+| Perfil | ID de Usuario | Descripción |
+| :--- | :--- | :--- |
+| **Administrador** | `ADMIN-01` | Acceso total al sistema |
+| **Docente** | `PROF-101` | Gestión de clases y materiales |
+| **Estudiante** | `EST-001` a `EST-005` | Consulta de 5 perfiles distintos |
 
 ---
-**Desarrollado para fines académicos en colaboración con la Fundación MOVAPE / UNICEP.**
+
+## 🛠️ Instalación Local
+
+1. Clonar el repositorio:
+   ```bash
+   git clone [https://github.com/montessergio/Portal-Acad-mico-MOVAPE-UNICEP.git](https://github.com/montessergio/Portal-Acad-mico-MOVAPE-UNICEP.git)
